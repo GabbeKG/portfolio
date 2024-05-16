@@ -1,0 +1,38 @@
+html,
+body
+{
+    margin: 0;
+}
+#root{
+    width: 100vw;
+    height: 100vh;
+
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p{
+    color: antiquewhite;
+}
+h2{
+font-size: 2rem;
+}
+p{
+    font-size: 1.2rem;
+}
+#Header ul{
+    display: flex;
+    position: sticky;
+    color: antiquewhite;
+    
+
+}
+.portfolio-content-container{
+    transform: translate3d(-100px,-200px,100px)!important;
+    width:500px;
+}
+#portfolioContainer{
+}
