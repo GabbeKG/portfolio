@@ -23,16 +23,19 @@ font-size: 2rem;
 p{
     font-size: 1.2rem;
 }
-.NavComponent{
-    transform: translate3d(33vw,-20px,10px)!important;
-    
-}
+
 #Header{
-    
-}
+    background-color: rgb(53, 53, 53);
+    position: fixed;
+    left: 50%;
+    top: 0;
+    transform: translate(-50%, 0%);
+    z-index: 1000000000;
+  }
+
 
 #Header nav{
-    
+   
     
 }
 #Header ul{
@@ -52,8 +55,28 @@ p{
     text-align: center;
 }
 .portfolio-content-container{
-    transform: translate3d(-100px,-200px,100px)!important;
+    transform: translate3d(-100px,-100px,100px)!important;
     width:500px;
 }
-#portfolioContainer{
+.showcaseButtons{
+    width:56vw;
+    transform:translate3D(30vw,70vh,0)!important;
+    z-index: 10000000;
+}
+.showcaseButtons>div{
+    display: flex;
+    font-size:xx-large;
+}
+.showcaseButtons div{
+    width: 28vw;
+    margin: 0 2rem;
+    background-color: rgb(136, 120, 120);
+    justify-content: space-around;
+    
+}
+.showcaseButtons div:hover{
+    
+    background-color: rgb(204, 75, 75);
+    
+    
 }

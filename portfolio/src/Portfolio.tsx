@@ -26,6 +26,7 @@ import { Perf } from 'r3f-perf'
 import { Suspense } from 'react'
 import Loader from './components/Loader'
 import { useFrame } from '@react-three/fiber'
+import { distance } from 'three/examples/jsm/nodes/Nodes.js'
 
 
 //import { useRef } from 'react'
@@ -36,7 +37,7 @@ import { useFrame } from '@react-three/fiber'
 
 export default  function Portfolio() {
     
-    //const scroll=useScroll()
+    const scroll=useScroll()
     //const camera = useThree(state => state.camera)
     //const keyboard = useGLTF('./src/assets/Models/keyboard2.gltf')
     const computer = useGLTF('https://vazxmixjsiawhamofees.supabase.co/storage/v1/object/public/models/macbook/model.gltf')
@@ -67,7 +68,8 @@ export default  function Portfolio() {
         <Perf position="top-right" />
         {/*<OrbitControls makeDefault enableZoom={false} />*/}
         
-
+            
+                
         <Environment
             background
             files={"src/assets/HDR/earthlike_planet.hdr"}
@@ -76,24 +78,43 @@ export default  function Portfolio() {
             >
 
         </Environment>
+                
+            <directionalLight intensity={1} />
+            <Html style={{top:-370}}>
+                <h2>Showcase</h2>
+            </Html>
         <ScrollControls pages={5} damping={.15}>
             <Scroll>
                 
         <Html position={2} className='portfolio-content-container'>
             <div id='portfolioContainer' style={{width:'30vw'}}>
-
-        
                 <h2 style={{  color: 'white', fontSize: '2rem', zIndex: 100 }}>
                     State of JavaScript</h2>
                 <p>This was a assignment we recieved where we were going to recreate the statistics page from "State of JavaScript" with a javascripts framework of our choice.</p>
                 {/*TEST TEXT*/}
                 <p>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Nisl vel pretium lectus quam. Mi bibendum neque egestas congue quisque egestas diam in arcu. Pretium quam vulputate dignissim suspendisse in. Molestie at elementum eu facilisis sed odio morbi quis. Diam volutpat commodo sed egestas egestas. Ut consequat semper viverra nam libero justo laoreet sit. Praesent elementum facilisis leo vel fringilla est ullamcorper eget. Non consectetur a erat nam at lectus urna. In vitae turpis massa sed elementum tempus egestas.
+                                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                                Nisl vel pretium lectus quam.
+                                Mi bibendum neque egestas congue quisque egestas diam in arcu. Pretium quam vulputate dignissim suspendisse in.
+                                Molestie at elementum eu facilisis sed odio morbi quis. Diam volutpat commodo sed egestas egestas.
+                                Ut consequat semper viverra nam libero justo laoreet sit. Praesent elementum facilisis leo vel fringilla est ullamcorper eget.
+                                Non consectetur a erat nam at lectus urna. In vitae turpis massa sed elementum tempus egestas.
 
   </p>
             
             </div>
-                </Html>
+                    </Html>
+                    <Html
+                        
+                        position={ [ -1.54, 2.5, -1.55 ] }
+                        distanceFactor={ 10.27 }
+                        wrapperClass='showcaseButtons' style={{ width: '40vw', display: 'flex' }}>
+                        
+                        <div>Previous</div>
+                        <div>Next</div>
+                    </Html>
+                </Scroll>
+                <Scroll>
                 <Float
                     rotationIntensity={0.2}
                     >
@@ -113,12 +134,13 @@ export default  function Portfolio() {
                     rotation={ [ - 0.1, Math.PI, 0 ] }
                     position={ [ 0, 0.55, - 1.15 ] }
                     />
+                           
 
+                                
                 <primitive 
                     object={ computer.scene }
-                    
-                    
                     >
+                                  
                     <Html
                         transform
                         wrapperClass="htmlScreen"
@@ -129,7 +151,7 @@ export default  function Portfolio() {
                         <iframe style={{borderRadius:'25px', position:'fixed'}} width={1000} height={675} src="https://fascinating-rolypoly-779f41.netlify.app/retention/" />
                     </Html>
             </primitive>
-        <directionalLight  intensity={1}/>
+                            
         </PresentationControls>
                 </Float>
                 <Float rotationIntensity={0.002}>
