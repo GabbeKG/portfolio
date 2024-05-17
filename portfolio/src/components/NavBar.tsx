@@ -1,4 +1,4 @@
-import { Html } from "@react-three/drei";
+import { Html, Scroll, ScrollControls, Stage } from "@react-three/drei";
 
 
 export default function NavBar() {
@@ -6,9 +6,19 @@ export default function NavBar() {
 
     return (
         <>
-        <Html>
+            <ScrollControls enabled pages={1}>
+                <Scroll>
 
-        <header id="Header">
+
+            <Html
+                fullscreen
+                wrapperClass="NavComponent"
+                style={{transform:'translate3d(33vw,-20px,15px)', position:'fixed', }}
+                
+                
+                >
+                    
+        <header id="Header" style={{position:'sticky'}}>
             <nav>
                 <ul>
                     <li>Start</li>
@@ -19,7 +29,11 @@ export default function NavBar() {
                 </ul>
             </nav>
         </header>
-        </Html>
+</Html>
+                    </Scroll>
+                </ScrollControls>
+       
+            
         </>
     )
 }
