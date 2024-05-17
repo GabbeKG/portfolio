@@ -72,7 +72,7 @@ export default  function Portfolio() {
                 
         <Environment
             background
-            files={"src/assets/HDR/earthlike_planet.hdr"}
+            files={"/HDR/earthlike_planet.hdr"}
             //preset='sunset'
             backgroundRotation={[.1,10.2,0, 'XYZ']}
             >
