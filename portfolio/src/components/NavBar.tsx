@@ -1,4 +1,4 @@
-import { Html, Scroll, ScrollControls, Stage } from "@react-three/drei";
+
 
 
 export default function NavBar() {
@@ -9,8 +9,8 @@ export default function NavBar() {
 
                     
         <header id="Header" >
-            <nav style={{position:'relative'}}>}}>
-                <ul style={{position:'relative'
+            <nav style={{position:'relative'}}>
+                    <ul style={{ position: 'relative' }}>
                     <li>Start</li>
                 <li>Skills</li>
                     <li>Showcase</li>
