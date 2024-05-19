@@ -1,43 +1,23 @@
-//import { useFrame } from '@react-three/fiber'
+
 import {
-    //Stage,
-    //Lightformer,
     Environment,
-    //Sky,
-    //ContactShadows,
-    //RandomizedLight,
-    //AccumulativeShadows,
-    //SoftShadows,
-    //BakeShadows,
-    //useHelper,
     PresentationControls,
     ScrollControls,
     useGLTF,
     Html,
-    useScroll,
+    //useScroll,
     Scroll,
     Float,
-    Resize,
+    
 } from '@react-three/drei'
-//import { useFrame, useThree } from '@react-three/fiber'
-//import { useRef } from 'react'
-
 import { Perf } from 'r3f-perf'
 import { Suspense } from 'react'
 import Loader from './components/Loader'
-import { useFrame } from '@react-three/fiber'
-import { distance } from 'three/examples/jsm/nodes/Nodes.js'
 
-
-//import { useRef } from 'react'
-//import { Camera } from 'three'
-//import * as THREE from 'three'
-//import hdr from './assets/HDR/earthlike_planet_close.hdr'
-//import { useControls } from 'leva'
 
 export default  function Portfolio() {
     
-    const scroll=useScroll()
+    //const scroll=useScroll()
     //const camera = useThree(state => state.camera)
     //const keyboard = useGLTF('./src/assets/Models/keyboard2.gltf')
     const computer = useGLTF('https://vazxmixjsiawhamofees.supabase.co/storage/v1/object/public/models/macbook/model.gltf')
@@ -51,41 +31,22 @@ export default  function Portfolio() {
     phone.scene.position.y=-.2
     phone.scene.position.z = -8
     phone.scene.scale.set(.3,.3,.3)
-    
-   
-    
-    
-    
-    
-    //TEST
-
-    //
-    
 
     return <>
         <Suspense fallback={<Loader/>}>
-            {/*<color args={ [ 'ivory' ] } attach="background" />*/}
+  
         <Perf position="top-right" />
         {/*<OrbitControls makeDefault enableZoom={false} />*/}
         
             
                 
-        <Environment
-            background
-            files={"/HDR/earthlike_planet.hdr"}
-            //preset='sunset'
-            backgroundRotation={[.1,10.2,0, 'XYZ']}
-            >
-
-        </Environment>
-                
-            <directionalLight intensity={1} />
+        
             <Html style={{top:-370}}>
                 <h2>Showcase</h2>
             </Html>
-        <ScrollControls pages={5} damping={.15}>
-            <Scroll>
+            <ScrollControls pages={10} >
                 
+            <Scroll>                
         <Html position={2} className='portfolio-content-container'>
             <div id='portfolioContainer' style={{width:'30vw'}}>
                 <h2 style={{  color: 'white', fontSize: '2rem', zIndex: 100 }}>
@@ -99,8 +60,7 @@ export default  function Portfolio() {
                                 Molestie at elementum eu facilisis sed odio morbi quis. Diam volutpat commodo sed egestas egestas.
                                 Ut consequat semper viverra nam libero justo laoreet sit. Praesent elementum facilisis leo vel fringilla est ullamcorper eget.
                                 Non consectetur a erat nam at lectus urna. In vitae turpis massa sed elementum tempus egestas.
-
-  </p>
+                            </p>
             
             </div>
                     </Html>
@@ -109,6 +69,8 @@ export default  function Portfolio() {
                         position={ [ -1.54, 2.5, -1.55 ] }
                         distanceFactor={ 10.27 }
                         wrapperClass='showcaseButtons' style={{ width: '40vw', display: 'flex' }}>
+                        
+                        
                         
                         <div>Previous</div>
                         <div>Next</div>
@@ -133,14 +95,12 @@ export default  function Portfolio() {
                     intensity={ 65 }
                     rotation={ [ - 0.1, Math.PI, 0 ] }
                     position={ [ 0, 0.55, - 1.15 ] }
-                    />
-                           
-
-                                
+                            />
+                            
                 <primitive 
                     object={ computer.scene }
-                    >
-                                  
+                            >
+                                
                     <Html
                         transform
                         wrapperClass="htmlScreen"
@@ -148,9 +108,11 @@ export default  function Portfolio() {
                         position={ [ -1.54, 2.5, -1.55 ] }
                         rotation-x={ - 0.256 }
                         >
+                                  
                         <iframe style={{borderRadius:'25px', position:'fixed'}} width={1000} height={675} src="https://fascinating-rolypoly-779f41.netlify.app/retention/" />
                     </Html>
             </primitive>
+                                     
                             
         </PresentationControls>
                 </Float>
@@ -189,5 +151,5 @@ export default  function Portfolio() {
                                 </ScrollControls>
             </Suspense>               
     </>
-        
+
 }

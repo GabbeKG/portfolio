@@ -2,6 +2,7 @@ html,
 body
 {
     margin: 0;
+    overflow: hidden!important;
 }
 #root{
     width: 100vw;
@@ -24,9 +25,12 @@ p{
     font-size: 1.2rem;
 }
 
+
 #Header{
-    background-color: rgb(53, 53, 53);
+    display: flex;
+   
     position: fixed;
+    width: 100vw;
     left: 50%;
     top: 0;
     transform: translate(-50%, 0%);
@@ -35,24 +39,32 @@ p{
 
 
 #Header nav{
-   
+   margin:0 auto
     
 }
 #Header ul{
-    
+    margin:0;
+    height: 5rem;
     display: flex;
-    
-    
     color: antiquewhite;
     list-style: none;
     
+    
+}
+#Header li{
+    background-color: rgb(53, 53, 53);
 
 }
 #Header ul>li{
-    background-color: rgb(53, 53, 53);
-    width:100px;
-    padding: 1.5rem 0;
+    width:10rem;
+    
+    padding:2rem;
     text-align: center;
+}
+#Header ul>li:hover{
+    background-color: antiquewhite;
+    margin:0;
+    color: brown;
 }
 .portfolio-content-container{
     transform: translate3d(-100px,-100px,100px)!important;
@@ -67,16 +79,19 @@ p{
     display: flex;
     font-size:xx-large;
 }
-.showcaseButtons div{
+.showcaseButtons div div{
+    text-align: center;
     width: 28vw;
     margin: 0 2rem;
     background-color: rgb(136, 120, 120);
     justify-content: space-around;
+    transition: transform 350ms;
     
 }
-.showcaseButtons div:hover{
-    
+.showcaseButtons div div:hover{
+    cursor: pointer;
     background-color: rgb(204, 75, 75);
+    transform: scale(1.1);
     
     
 }
