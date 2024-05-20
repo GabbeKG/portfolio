@@ -1,12 +1,21 @@
 import { Html, Scroll, ScrollControls } from "@react-three/drei";
+import { useState } from "react";
+import { useSpring, animated } from "react-spring";
 
 export default function Presentation() {
-    
+    const [section, newSection]=useState('presentation')
+    const presentationSpring = useSpring({
+        opacity: section === 'presentation' ? 1 : 0,
+        from: { x: 0 },
+        to: {x:100}
+      });
     return (
         <>
             <ScrollControls pages={1}>
                 <Scroll>
                     <Html wrapperClass="presentation" style={{position:'absolute', transform:'translate3d(-25vw,-300px,0)', width:'50vw'}}>
+                        <animated.div style={presentationSpring}>
+
             <h2>TEST</h2>
 
             <p>
@@ -54,6 +63,7 @@ export default function Presentation() {
                 Nec feugiat in fermentum posuere. Feugiat in ante metus dictum at tempor commodo ullamcorper.
                 Cras sed felis eget velit aliquet sagittis id consectetur purus.
         </p>
+                        </animated.div>
         </Html>
             </Scroll>
             </ScrollControls>

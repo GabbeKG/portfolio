@@ -6,7 +6,8 @@ export default function NavBar({ onSectionChange }) {
   };
 
   return (
-    <>
+      <>
+          
       <header id="Header">
         <nav style={{ position: 'relative' }}>
           <ul style={{ position: 'relative' }}>

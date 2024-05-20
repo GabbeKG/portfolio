@@ -11,12 +11,19 @@ import {
     
 } from '@react-three/drei'
 import { Perf } from 'r3f-perf'
-import { Suspense } from 'react'
+import { Suspense, useState } from 'react'
 import Loader from './components/Loader'
+import { useSpring, animated } from 'react-spring'
 
 
 export default  function Portfolio() {
-    
+    const [section, newSection]=useState('presentation')
+    const spring = useSpring({
+        opacity: section === 'portfolio' ? 1 : 0,
+        from: { x: 0 },
+        to: {x:50},
+        
+      });
     //const scroll=useScroll()
     //const camera = useThree(state => state.camera)
     //const keyboard = useGLTF('./src/assets/Models/keyboard2.gltf')
@@ -35,19 +42,22 @@ export default  function Portfolio() {
     return <>
         <Suspense fallback={<Loader/>}>
   
-        <Perf position="top-right" />
+       
         {/*<OrbitControls makeDefault enableZoom={false} />*/}
         
             
                 
-        
-            <Html style={{top:-370}}>
-                <h2>Showcase</h2>
-            </Html>
-            <ScrollControls pages={10} >
                 
-            <Scroll>                
-        <Html position={2} className='portfolio-content-container'>
+            <Html style={{top:-370}}>
+            <animated.div style={spring}>
+                    <h2>Showcase</h2>
+                    </animated.div>
+            </Html>
+           
+                
+                         
+            <Html position={2} className='portfolio-content-container'>
+            <animated.div style={spring}>
             <div id='portfolioContainer' style={{width:'30vw'}}>
                 <h2 style={{  color: 'white', fontSize: '2rem', zIndex: 100 }}>
                     State of JavaScript</h2>
@@ -62,7 +72,8 @@ export default  function Portfolio() {
                                 Non consectetur a erat nam at lectus urna. In vitae turpis massa sed elementum tempus egestas.
                             </p>
             
-            </div>
+                    </div>
+                    </animated.div>
                     </Html>
                     <Html
                         
@@ -75,8 +86,7 @@ export default  function Portfolio() {
                         <div>Previous</div>
                         <div>Next</div>
                     </Html>
-                </Scroll>
-                <Scroll>
+              
                 <Float
                     rotationIntensity={0.2}
                     >
@@ -95,12 +105,11 @@ export default  function Portfolio() {
                     intensity={ 65 }
                     rotation={ [ - 0.1, Math.PI, 0 ] }
                     position={ [ 0, 0.55, - 1.15 ] }
-                            />
-                            
+                    />
                 <primitive 
                     object={ computer.scene }
-                            >
-                                
+                    >
+
                     <Html
                         transform
                         wrapperClass="htmlScreen"
@@ -108,9 +117,11 @@ export default  function Portfolio() {
                         position={ [ -1.54, 2.5, -1.55 ] }
                         rotation-x={ - 0.256 }
                         >
-                                  
-                        <iframe style={{borderRadius:'25px', position:'fixed'}} width={1000} height={675} src="https://fascinating-rolypoly-779f41.netlify.app/retention/" />
+                         <Suspense fallback={<Loader/>}></Suspense>         
+                            <iframe style={{ borderRadius: '25px', position: 'fixed' }} width={1000} height={675} src="https://fascinating-rolypoly-779f41.netlify.app/retention/" />
+                            
                     </Html>
+
             </primitive>
                                      
                             
@@ -145,10 +156,8 @@ export default  function Portfolio() {
                         </PresentationControls>
                             </Float>
         
-                            </Scroll>
+                           
                             
-                                 
-                                </ScrollControls>
             </Suspense>               
     </>
 
